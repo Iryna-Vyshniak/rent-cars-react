@@ -162,11 +162,11 @@ address {
   }
 
   .title-card {
-    @apply flex justify-space-between items-center text-main-text text-[16px] font-medium;
+    @apply flex justify-between items-center text-main-text text-[16px] font-medium;
   }
 
   .title-accent {
-    @apply flex justify-space-between items-center text-accent-color text-[16px] font-medium;
+    @apply flex justify-between items-center text-accent-color text-[16px] font-medium;
   }
 
   .card-info-block {
