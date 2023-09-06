@@ -13,8 +13,8 @@ const Logo = ({ className, classText, text }) => {
         <img
           src={LogoCar}
           alt="logo"
-          width="100%"
-          height="100%"
+          width="474"
+          height="626"
           className={className ? `${className}` : ''}
         />
         {text && <Title className={classText ? `${classText}` : ''}>{text}</Title>}
