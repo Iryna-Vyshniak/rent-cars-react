@@ -11,6 +11,8 @@ const ThumbImage = ({ src, alt, className }) => {
             ? `block object-cover object-center ${className}`
             : 'block h-auto max-w-full  object-cover object-center'
         }
+        width="274"
+        height="426"
         loading="lazy"
       />
     </div>
