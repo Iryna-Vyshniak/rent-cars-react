@@ -161,12 +161,16 @@ address {
     @apply w-[3.5rem];
   }
 
+  .logo-text {
+    @apply ml-2 font-montserrat text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-800 hover:text-hover-color drop-shadow-[0_2px_1px_rgba(0,0,0,.4)] transition-transform duration-200 ease-in-out;
+  }
+
   .navbar-links {
     @apply max-md:hidden flex justify-center items-center gap-8;
   }
 
   .navbar-link {
-    @apply cursor-pointer px-3 text-sm font-montserrat font-semibold text-label-text hover:text-accent-color border-b-[3px] border-b-transparent transition-transform duration-200 ease-in-out;
+    @apply cursor-pointer px-3 text-sm font-montserrat font-semibold text-label-text hover:text-accent-color border-b-[3px] border-b-transparent transition duration-200 ease-in-out;
   }
 
   .mobile-hamb {
