@@ -9,5 +9,5 @@
   "arrowParens": "avoid",
   "proseWrap": "always",
   "endOfLine": "auto",
-  "semi": false
+  "semi": true
 }
