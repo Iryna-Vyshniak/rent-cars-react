@@ -4,7 +4,7 @@ import UserRoutes from './UserRoutes';
 
 const App = () => {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/rent-cars-react">
       <UserRoutes />
     </BrowserRouter>
   );
