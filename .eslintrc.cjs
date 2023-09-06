@@ -1,4 +1,3 @@
-// Файл .eslintrc.cjs
 module.exports = {
   root: true,
   env: {
@@ -25,7 +24,7 @@ module.exports = {
     quotes: ['error', 'single'],
     'jsx-quotes': ['error', 'prefer-double'],
     'no-console': 'warn',
-    semi: 'off',
+    semi: ['error', 'always'],
     'space-before-function-paren': [
       'error',
       {
@@ -52,4 +51,4 @@ module.exports = {
       }
     }
   ]
-}
+};
