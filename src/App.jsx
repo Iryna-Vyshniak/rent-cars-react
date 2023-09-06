@@ -1,5 +1,13 @@
+import { BrowserRouter } from 'react-router-dom';
+
+import UserRoutes from './UserRoutes';
+
 const App = () => {
-  return <div>App</div>;
+  return (
+    <BrowserRouter basename="/">
+      <UserRoutes />
+    </BrowserRouter>
+  );
 };
 
 export default App;
