@@ -4,35 +4,35 @@
 
 @font-face {
   font-family: 'Manrope';
-  src: url('../assests/fonts/Manrope-Regular.ttf');
+  src: url('../assets/fonts/Manrope-Regular.ttf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: url('../assests/fonts/Manrope-Medium.ttf');
+  src: url('../assets/fonts/Manrope-Medium.ttf');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Manrope';
-  src: url('../assests/fonts/Manrope-SemiBold.ttf');
+  src: url('../assets/fonts/Manrope-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assests/fonts/Montserrat-Regular.ttf');
+  src: url('../assets/fonts/Montserrat-Regular.ttf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assests/fonts/Montserrat-SemiBold.ttf');
+  src: url('../assets/fonts/Montserrat-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
 }
@@ -149,16 +149,66 @@ address {
 }
 
 @layer utilities {
+  .header {
+    @apply fixed inset-x-0 top-0 z-40 mx-auto  h-[50px]  max-w-full border-b p-3 shadow-xl shadow-blue-500/10;
+  }
+
+  .navbar {
+    @apply flex justify-between items-center px-3 mx-auto max-w-screen-wide w-full h-auto max-md:hidden bg-transparent;
+  }
+
+  .navbar-logo {
+    @apply w-[3.5rem];
+  }
+
+  .navbar-links {
+    @apply max-md:hidden flex justify-center items-center gap-8;
+  }
+
+  .navbar-link {
+    @apply cursor-pointer px-3 text-sm font-montserrat font-semibold text-label-text hover:text-accent-color border-b-[3px] border-b-transparent transition-transform duration-200 ease-in-out;
+  }
+
+  .mobile-hamb {
+    @apply block md:hidden;
+  }
+
+  .mobile-navbar {
+    @apply fixed top-0 left-0 z-[60] flex flex-col justify-center items-center p-10  w-screen h-screen bg-mob-menu shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out;
+  }
+
+  .mobile-navbar-menu {
+    @apply absolute top-3 right-2 w-[24px] h-[24px] hover:fill-accent-color focus:stroke-accent-color cursor-pointer transition duration-200 ease-in-out;
+  }
+
+  .mobile-navbar-close {
+    @apply absolute top-3 right-2 w-[24px] h-[24px] stroke-main-text hover:stroke-accent-color focus:stroke-accent-color cursor-pointer transition duration-200 ease-in-out;
+  }
+
+  .mobile-navbar-items {
+    @apply flex flex-col justify-center items-center gap-[3rem] text-[2.3rem] text-center font-montserrat font-semibold;
+  }
+
+  .open-nav {
+    @apply left-0 transform translate-x-0 transition duration-200 ease-in-out;
+  }
+
   .cards-list {
-    @apply sm: grid sm:grid-cols-2 lg:grid-cols-3 wide:grid-cols-4 space-x-[29px];
+    @apply sm:grid md:grid-cols-2 lg:grid-cols-3 wide:grid-cols-4 wide:space-x-[29px] space-x-2 place-content-center;
   }
 
   .card {
-    @apply relative flex flex-col items-start shrink-0 space-x-[28px] w-[274px] h-[426px];
+    @apply relative flex flex-col items-start shrink-0 w-[244px] h-[304px] md:w-[254px] md:h-[406px]  wide:w-[274px] wide:h-[426px];
+  }
+
+  /* lg:w-[264px] lg:h-[416px] */
+
+  .thumb {
+    @apply h-[238px] w-[371px] md:h-[248px] md:w-[381px] lg:h-[258px] lg:w-[391px] wide:h-[268px] wide:w-[401px];
   }
 
   .card-image {
-    @apply mb-[14px] max-w-full w-[401px] h-[268px] rounded-[14px] shrink-0 object-cover bg-bg-img;
+    @apply w-full h-full rounded-[14px] shrink-0 object-cover bg-bg-img;
   }
 
   .title-card {
@@ -166,7 +216,7 @@ address {
   }
 
   .title-accent {
-    @apply flex justify-between items-center text-accent-color text-[16px] font-medium;
+    @apply text-accent-color text-[16px] font-medium;
   }
 
   .card-info-block {
@@ -182,11 +232,11 @@ address {
   }
 
   .heart {
-    @apply absolute top-[14px] right-[14px] w-[18px] h-[18px] cursor-pointer bg-transparent fill-transparent stroke-hearts-color hover: stroke-accent focus:stroke-accent transition duration-200 ease-in-out;
+    @apply absolute top-[14px] right-[14px] z-20 w-[18px] h-[18px] cursor-pointer bg-transparent fill-transparent stroke-hearts-color hover:stroke-accent-color focus:stroke-accent-color transition duration-200 ease-in-out;
   }
 
   .favorite {
-    @apply fill-accent stroke-accent;
+    @apply fill-accent-color stroke-accent-color;
   }
 
   .select-label {
@@ -226,11 +276,11 @@ address {
   }
 
   .padding {
-    @apply sm:py-24 py-12 wide:p-[128px];
+    @apply sm:px-24 py-12 wide:p-[128px];
   }
 
   .form {
-    @apply flex items-end space-x-[18px] mb-50px];
+    @apply flex items-end space-x-[18px] mb-[50px];
   }
 
   .backdrop {
@@ -246,7 +296,7 @@ address {
   }
 
   .modal-car {
-    @apply mb-14px w-[461px] h-[248px] object-cover rounded-[14px] bg-bg-img;
+    @apply mb-[14px] w-[461px] h-[248px] object-cover rounded-[14px] bg-bg-img;
   }
 
   .modal-title {
@@ -274,15 +324,15 @@ address {
   }
 
   .modal-btn-cond {
-    @apply flex justify-center items-center py-[7px] px-[14px] mb-[8px] bg-cond-bg  rounded-[35px] transition duration-200 ease-in-out;
+    @apply flex justify-center items-center py-[7px] px-[14px] mb-[8px] bg-cond-bg rounded-[35px] transition duration-200 ease-in-out;
   }
 
   .cond {
-    @apply text-cond-text font-montserrat text-[12px] font-normal leading-5 tightest;
+    @apply text-cond-text font-montserrat text-[12px] font-normal leading-5 tracking-tightest;
   }
 
   .modal-accent-cond {
-    @apply text-accent font-montserrat text-[12px] font-[600] leading-5 tightest;
+    @apply text-accent-color font-montserrat text-[12px] font-[600] leading-5 tracking-tightest;
   }
 
   .modal-btn-link {
