@@ -38,10 +38,14 @@ export default {
         'backdrops-bg': 'rgba(18, 20, 23, 0.50)',
         'modal-bg': '#FFFFFF',
         'cond-text': '#363535',
-        'cond-bg': '#F9F9F9'
+        'cond-bg': '#F9F9F9',
+        'mob-menu': '#BFDBFE'
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
+      },
+      backdropBlur: {
+        mds: '18px'
       },
       screens: {
         wide: '1440px'
@@ -50,4 +54,4 @@ export default {
     }
   },
   plugins: []
-}
+};
