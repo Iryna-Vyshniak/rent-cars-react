@@ -1,18 +1,26 @@
 import PropTypes from 'prop-types';
 
-const ThumbImage = ({ src, alt, className }) => {
+import { DefaultCar } from '../assets/images';
+
+const ThumbImage = ({ src, alt, className, blockClass, width, height }) => {
   return (
-    <div className="thumb mb-[14px] max-w-full overflow-hidden rounded-[14px]">
+    <div
+      className={
+        blockClass
+          ? `mb-[14px] max-w-full overflow-hidden rounded-[14px] ${blockClass}`
+          : 'thumb mb-[14px] max-w-full overflow-hidden rounded-[14px]'
+      }
+    >
       <img
-        src={src}
+        src={src ? `${src}` : DefaultCar}
         alt={alt}
         className={
           className
-            ? `block object-cover object-center ${className}`
+            ? `block h-auto max-w-full object-cover object-center ${className}`
             : 'block h-auto max-w-full  object-cover object-center'
         }
-        width="274"
-        height="426"
+        width={width}
+        height={height}
         loading="lazy"
       />
     </div>
@@ -22,7 +30,10 @@ const ThumbImage = ({ src, alt, className }) => {
 ThumbImage.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
+  blockClass: PropTypes.string,
+  width: PropTypes.string.isRequired,
+  height: PropTypes.string.isRequired
 };
 
 export default ThumbImage;
