@@ -43,8 +43,6 @@ const CarItem = ({ car, fav }) => {
       addFav(car);
       setIsActive(true);
     }
-    const storedFavorites = Object.keys(localStorage).filter(key => key.startsWith('car'));
-    favLength.current = storedFavorites.length;
   };
 
   if (favLength.current < 1 && isVisible === false) {
