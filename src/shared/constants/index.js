@@ -1,3 +1,3 @@
-import { activeLink } from './constants';
+import { activeLink, COUNT_CARS } from './constants';
 
-export { activeLink };
+export { activeLink, COUNT_CARS };
