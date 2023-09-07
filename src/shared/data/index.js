@@ -1,3 +1,3 @@
-import { navLinks } from './data';
+import { navLinks, accordionData } from './data';
 
-export { navLinks };
+export { navLinks, accordionData };
