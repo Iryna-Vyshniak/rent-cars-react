@@ -48,7 +48,11 @@ export default {
         mds: '18px'
       },
       screens: {
-        wide: '1440px'
+        wide: '1440px',
+        mob: '320px'
+      },
+      backgroundImage: {
+        hero: 'url("../../assets/images/bg-hero-min.png")'
       },
       scrollbar: ['rounded']
     }
