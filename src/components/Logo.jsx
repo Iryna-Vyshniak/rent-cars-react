@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import LogoCar from '../assets/images/logo.png';
+import { LogoCar } from '../assets/images';
 import { scrollToTop } from '../shared/utils';
 
 import Title from './Title';
