@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 
 import icons from '../assets/images/icons.svg';
 
-const Button = ({ label, iconURL, ariaLabel, className, svgClass, onClick }) => {
+const Button = ({ label, iconURL, ariaLabel, className, svgClass, onClick, type, id }) => {
   return (
     <button
+      id={id}
+      type={type}
       className={
         className
           ? `${className}`
@@ -29,7 +31,9 @@ Button.propTypes = {
   ariaLabel: PropTypes.string,
   className: PropTypes.string,
   svgClass: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  type: PropTypes.string,
+  id: PropTypes.any
 };
 
 export default Button;
