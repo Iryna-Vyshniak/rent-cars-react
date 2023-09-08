@@ -11,14 +11,16 @@ export default {
       lg: ['18px', '21.94px'],
       xl: ['20px', '24.38px'],
       '2xl': ['24px', '29.26px'],
-      '3xl': ['28px', '50px'],
+      '3xl': ['32px', '42px'],
       '4xl': ['48px', '58px'],
       '8xl': ['96px', '106px']
     },
     extend: {
       fontFamily: {
         manrope: ['Manrope', 'sans-serif'],
-        montserrat: ['Montserrat', 'sans-serif']
+        montserrat: ['Montserrat', 'sans-serif'],
+        dancing: ['Dancing Script', 'cursive'],
+        playfair: ['Playfair Display', 'serif']
       },
       letterSpacing: {
         tightest: '-0.24px'
@@ -39,7 +41,9 @@ export default {
         'modal-bg': '#FFFFFF',
         'cond-text': '#363535',
         'cond-bg': '#F9F9F9',
-        'mob-menu': '#BFDBFE'
+        'mob-menu': '#BFDBFE',
+        'active-link': '#88bff9',
+        'nav-link': '#8093c0'
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
