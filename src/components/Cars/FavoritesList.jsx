@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { getFav } from '../../shared/utils';
 
 import CarItem from './CarItem';
 
-const FavoritesList = () => {
+const FavoritesList = ({ open }) => {
   const [favoriteCars, setFavoriteCars] = useState([]);
 
   useEffect(() => {
@@ -22,12 +23,16 @@ const FavoritesList = () => {
   }
 
   return (
-    <div className="cards-list mt-[40px] p-8">
+    <div className={open ? 'fav-list mt-[40px] p-8' : 'cards-list mt-[70px]'}>
       {favoriteCars.map(car =>
         car && car.id ? <CarItem car={car} fav={true} key={car.id} onOpen={open} /> : null
       )}
     </div>
   );
+};
+
+FavoritesList.propTypes = {
+  open: PropTypes.bool.isRequired
 };
 
 export default FavoritesList;

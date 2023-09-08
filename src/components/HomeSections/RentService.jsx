@@ -3,12 +3,16 @@ import MainTitle from '../MainTitle';
 
 const RentService = () => {
   return (
-    <section className="mb-10">
+    <section className="mb-10 max-mob:mt-[290px] mob:mt-[400px] max-sm:mt-[460px] leading-[0.05rem]">
       <div className="flex flex-wrap items-center justify-between gap-x-10 lg:flex-nowrap">
         <div className="w-full lg:w-2/5">
           <MainTitle className="capitalize text-black/80">
             Unlock Your Journey with
-            <span className="font-semibold text-accent-color"> Our Wheels</span>!
+            <span className="font-semibold text-accent-color drop-shadow-[0_0.8px_0.8px_rgba(0,0,20,1)]">
+              {' '}
+              Our Wheels
+            </span>
+            !
           </MainTitle>
 
           <p className="modal-second-title text-secondary-text">Best Rental Service</p>

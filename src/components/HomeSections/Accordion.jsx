@@ -49,14 +49,14 @@ const Accordion = () => {
             id="expand-all"
             type="button"
             label="Expand All"
-            className="modal-btn-link h-8 w-fit cursor-pointer rounded-lg border border-blue-200 bg-transparent px-6 text-[12px] shadow-lg "
+            className="accord-btn"
             onClick={() => toggleAll(true)}
           />
           <Button
             id="collapse-all"
             type="button"
             label="Collapse All"
-            className="modal-btn-link h-8 w-fit cursor-pointer rounded-lg border border-blue-200 bg-transparent px-2 text-[12px] shadow-lg"
+            className="accord-btn"
             onClick={() => toggleAll(false)}
           />
         </div>

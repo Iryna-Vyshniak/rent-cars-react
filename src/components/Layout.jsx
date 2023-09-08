@@ -8,9 +8,9 @@ import Spinner from './Spinner';
 
 const Layout = () => {
   return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center">
+    <div className="relative flex flex-auto min-h-screen flex-col items-center justify-center">
       <Header />
-      <main className="mt-11 w-full grow">
+      <main className="mob:mt-[140px] mt-11 w-full flex-auto">
         <Container className="padding">
           <Suspense fallback={<Spinner />}>
             <Outlet />

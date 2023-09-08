@@ -1,35 +1,30 @@
-import { useState } from 'react';
-
 import FavoritesList from '../Cars/FavoritesList';
 import { navLinks } from '../../shared/data';
-import ThumbImage from '../ThumbImage';
+
 import Button from '../Button';
 import Title from '../Title';
+import { useToggle } from '../../shared/hooks';
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true);
+  const { isOpen, toggle } = useToggle(true);
 
   return (
-    <div className="flex items-center justify-center">
-      <div
-        className={`${
-          open ? 'w-72' : 'w-20'
-        } relative min-h-screen bg-accent-color p-5 pt-8 transition duration-200 ease-in-out`}
-      >
-        <img
-          width="50"
-          height="50"
-          src="https://img.icons8.com/ios/50/circled-left-2.png"
-          alt="circled-left-2"
-          className={`absolute cursor-pointer -right-3 top-16 w-7 ring-white
-           border-2 rounded-full ${!open && 'rotate-180'} transition duration-200 ease-in-out`}
-          onClick={() => setOpen(!open)}
+    <div className="ml-2 flex flex-1 items-center justify-center self-start pl-2 md:min-h-screen">
+      <div className={`${isOpen ? 'sidebar-open' : 'sidebar-close'} sidebar`}>
+        <Button
+          iconURL="#icon-arrow"
+          type="button"
+          className="sidebar-btn"
+          svgClass={`w-3 fill-nav-link hover:fill-white ${
+            !isOpen && 'rotate-180 transition duration-200 ease-in-out;'
+          } transition duration-200 ease-in-out`}
+          onClick={toggle}
         />
         <div className="flex items-center gap-x-4">
           <Title
             className={`mt-[30px] origin-left text-xl font-medium text-white transition duration-200 ease-in-out ${
-              !open && 'hidden'
-            } ${open && 'scale-[1]'}`}
+              !isOpen && 'hidden'
+            } ${isOpen && 'scale-[1]'}`}
           >
             Models
           </Title>
@@ -48,7 +43,7 @@ const Sidebar = () => {
                 className="heart"
               />
               <span
-                className={`${!open && 'hidden'} origin-left transition duration-200 ease-in-out`}
+                className={`${!isOpen && 'hidden'} origin-left transition duration-200 ease-in-out`}
               >
                 {menu.label}
               </span>
@@ -56,8 +51,8 @@ const Sidebar = () => {
           ))}
         </ul>
       </div>
-      <div className="no-scrollbar h-screen flex-1 overflow-y-auto p-7">
-        <FavoritesList />
+      <div className="no-scrollbar h-screen flex-auto overflow-y-auto px-2 py-7">
+        <FavoritesList open={isOpen} />
       </div>
     </div>
   );

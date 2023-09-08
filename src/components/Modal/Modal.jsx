@@ -32,7 +32,7 @@ const Modal = ({ onClose, children, isOpen }) => {
 
   return createPortal(
     <div className="backdrop" onClick={handleModalClose}>
-      <div className="modal">
+      <div className="modal max-w-full">
         <Button
           onClick={onClose}
           className="close"
