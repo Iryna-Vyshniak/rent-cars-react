@@ -33,7 +33,20 @@
 @font-face {
   font-family: 'Montserrat';
   src: url('../assets/fonts/Montserrat-SemiBold.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('../assets/fonts/DancingScript-Medium.ttf');
   font-weight: 600;
+  font-style: cursive;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('../assets/fonts/PlayfairDisplay-Medium.ttf');
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -161,7 +174,7 @@ address {
   }
 
   .logo-text {
-    @apply ml-2 font-montserrat text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-800 hover:text-hover-color drop-shadow-[0_2px_1px_rgba(0,0,0,.4)] transition-transform duration-200 ease-in-out;
+    @apply ml-2 font-playfair tracking-wider text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-800 hover:text-hover-color focus:text-hover-color drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out;
   }
 
   .navbar-links {
@@ -169,7 +182,7 @@ address {
   }
 
   .navbar-link {
-    @apply cursor-pointer px-3 text-sm font-montserrat font-semibold text-label-text hover:text-accent-color border-b-[3px] border-b-transparent transition duration-200 ease-in-out;
+    @apply cursor-pointer px-3 text-sm font-montserrat font-semibold text-nav-link hover:text-accent-color focus:text-hover-color border-b-[3px] border-b-transparent drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out;
   }
 
   .mobile-hamb {
@@ -177,7 +190,7 @@ address {
   }
 
   .mobile-navbar {
-    @apply fixed top-0 left-0 z-[60] flex flex-col justify-center items-center p-10  w-screen h-screen bg-mob-menu shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out;
+    @apply fixed top-0 left-0 z-[60] flex flex-col justify-center items-center p-10  w-screen min-h-screen bg-mob-menu shadow-xl transform translate-x-full transition-transform duration-300 ease-in-out;
   }
 
   .mobile-navbar-menu {
@@ -292,7 +305,7 @@ address {
   }
 
   .modal {
-    @apply absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-[110]  p-[40px] w-[541px] min-h-[752px] bg-modal-bg rounded-[24px];
+    @apply absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-[110]  p-[40px] w-[541px] min-h-[752px] bg-modal-bg rounded-[24px] mx-auto;
   }
 
   .close {
@@ -342,6 +355,30 @@ address {
   .modal-btn-link {
     @apply inline-flex justify-center items-center py-[12px] px-[50px] w-[168px] h-[44px] rounded-[12px] bg-accent-color hover:bg-hover-color focus:bg-hover-color text-btn-text text-[14px] font-[600] leading-5;
   }
+
+  .accord-btn {
+    @apply h-8 w-fit cursor-pointer rounded-lg border border-blue-200 bg-accent-color px-2 text-[12px] text-btn-text shadow-lg transition duration-200 ease-in-out hover:bg-hover-color focus:bg-hover-color;
+  }
+
+  .sidebar-arrow {
+    @apply absolute -right-3 top-16 flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border-2 border-nav-link bg-white shadow-lg shadow-gray-600 hover:bg-mob-menu transition duration-200 ease-in-out;
+  }
+
+  .sidebar-btn {
+    @apply absolute -right-3 top-16 flex h-[25px] w-[25px] cursor-pointer items-center justify-center rounded-full border-2 border-nav-link bg-white shadow-lg shadow-gray-600 hover:bg-mob-menu transition duration-200 ease-in-out;
+  }
+
+  .sidebar {
+    @apply sticky left-0 top-0 z-[60] min-h-screen bg-accent-color p-5 pt-8 transition duration-300 ease-linear;
+  }
+
+  .sidebar-open {
+    @apply w-72 min-w-min  max-w-[18rem] flex-initial translate-x-0 transition-transform duration-300 ease-linear;
+  }
+
+  .sidebar-close {
+    @apply w-20 flex-initial -translate-x-4 transition-transform duration-300 ease-linear;
+  }
 }
 
 .home-bg {
@@ -350,11 +387,13 @@ address {
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
   background-image: url('../assets/images/bg-hero-min.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom right;
+  background-position: bottom right left;
 }
+
 .fav-bg {
   position: absolute;
   bottom: 0;
@@ -364,7 +403,7 @@ address {
   background-image: url('../assets/images/fav-bg-min.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom right;
+  background-position: bottom right left;
 }
 
 .accordion-title {
