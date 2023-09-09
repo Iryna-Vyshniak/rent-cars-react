@@ -1,4 +1,5 @@
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     container: {
@@ -43,7 +44,8 @@ export default {
         'cond-bg': '#F9F9F9',
         'mob-menu': '#BFDBFE',
         'active-link': '#88bff9',
-        'nav-link': '#8093c0'
+        'nav-link': '#8093c0',
+        'select-text': 'rgba(18, 20, 23, 0.20)'
       },
       boxShadow: {
         '3xl': '0 10px 40px rgba(0, 0, 0, 0.1)'
