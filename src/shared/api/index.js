@@ -1,0 +1,1 @@
+import { getAllCars } from './adverts';
