@@ -33,7 +33,7 @@ ThumbImage.propTypes = {
   className: PropTypes.string,
   blockClass: PropTypes.string,
   width: PropTypes.string.isRequired,
-  height: PropTypes.string.isRequired
+  height: PropTypes.string
 };
 
 export default ThumbImage;
