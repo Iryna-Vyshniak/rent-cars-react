@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 
 import { selectFavorites, selectFilter } from '../../redux/cars/carsSelectors';
 
-import NoLikes from '../NotFound';
-
 import Filter from '../Filter/Filter';
 
 import { filterCars } from '../../shared/utils';
+
+import NotFound from '../NotFound';
 
 import CarItem from './CarItem';
 
@@ -22,7 +22,7 @@ const FavoritesList = ({ open }) => {
       <div className="ml-5 mt-10">
         <Filter cars={favoriteCars} open={open} />
       </div>
-      {!filteredCars.length && <NoLikes />}
+      {!filteredCars.length && <NotFound />}
       <div className={open ? 'fav-list relative mt-[40px] p-8' : 'cards-list relative mt-[70px]'}>
         {filteredCars.map(car => (
           <CarItem car={car} key={car.id} />
