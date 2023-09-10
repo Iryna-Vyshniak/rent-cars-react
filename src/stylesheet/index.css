@@ -308,7 +308,7 @@ address {
 
   .select-placeholder {
     @apply leading-5 text-[16px] text-main-text 
-    placeholder:leading-5 placeholder:font-[18px] placeholder:font-medium placeholder:text-main-text;
+    placeholder:leading-5 placeholder:text-[18px] placeholder:font-medium placeholder:text-main-text;
   }
 
   .select-from {
