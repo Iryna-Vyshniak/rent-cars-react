@@ -1,8 +1,9 @@
-import WhiteCar from './white-car.png';
 import DefaultCar from './car.jpg';
 import LogoCar from './logo.png';
 import Sgn from './sgn.png';
-import BgHero from './bg-hero-min.png';
-import BgFav from './fav-bg-min.png';
+import Car from './whitecar.png';
+import Nature from './nature.png';
 
-export { DefaultCar, WhiteCar, Sgn, LogoCar, BgHero, BgFav };
+import HeroPoster from './hero.jpg';
+
+export { DefaultCar, Sgn, LogoCar, Car, HeroPoster, Nature };
