@@ -1,5 +1,13 @@
 ## Car Rental Application
 
+---
+
+## Promo
+
+[RentCars - Your Ultimate Car Rental Solution! Explore a wide range of rental cars, stay organized, and boost your travel experience with RentCars.](https://iryna-vyshniak.github.io/rent-cars-react/)
+
+---
+
 This is a simple car rental application built with Vite + React. It allows users to browse a catalog
 of cars available for rent, add cars to their favorites, and view detailed information about each
 car. The application also includes filtering options to help users find cars that match their
@@ -39,7 +47,7 @@ To get started with the project, follow these steps:
 
 2. Change directory to the project folder:
 
-`cd car-rental-app`
+`cd rent-cars-react`
 
 3.  Install the project dependencies:
 
