@@ -54,7 +54,7 @@ const Filter = ({ cars }) => {
       disabled={isFormDisabled}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="form mb-2 flex-wrap gap-3 items-center">
+        <div className="form mb-2 flex-wrap items-center gap-3">
           <div className="select-wrapper mb-2">
             <label htmlFor="brand" className="select-label">
               Car brand
