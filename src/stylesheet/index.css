@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary-bg-color: #ffffff;
+  --primary-text-color: #121417;
+}
+
+:root.dark-mode {
+  --primary-bg-color: #46567d;
+  --primary-text-color: #ffffff;
+}
+
 @font-face {
   font-family: 'Manrope';
   src: url('../assets/fonts/Manrope-Regular.ttf');
@@ -74,8 +84,8 @@ html {
 body {
   margin: 0;
 
-  background-color: #ffffff;
-  color: #121417;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
 
   font-family: Manrope, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -162,7 +172,7 @@ address {
 
 @layer utilities {
   .header {
-    @apply fixed inset-x-0 top-0 z-40 mx-auto  h-[50px]  max-w-full border-b p-3 shadow-xl shadow-blue-500/10;
+    @apply fixed inset-x-0 top-0 z-40 mx-auto  h-[52px]  max-w-full border-b p-3 shadow-xl shadow-blue-500/10;
   }
 
   .navbar {
@@ -174,7 +184,7 @@ address {
   }
 
   .logo-text {
-    @apply ml-2 font-playfair tracking-wider text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-800 hover:text-hover-color focus:text-hover-color drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out;
+    @apply ml-2 font-playfair tracking-wider text-[20px] font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-800  dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-blue-100 dark:via-blue-500 dark:to-blue-800 hover:text-hover-color focus:text-hover-color drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out;
   }
 
   .navbar-links {
@@ -182,7 +192,11 @@ address {
   }
 
   .navbar-link {
-    @apply cursor-pointer px-3 text-sm font-montserrat font-semibold text-nav-link hover:text-accent-color focus:text-hover-color border-b-[3px] border-b-transparent drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out;
+    @apply cursor-pointer px-3 text-[18px] font-montserrat font-semibold text-nav-link dark:text-white dark:drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] hover:text-accent-color focus:text-hover-color border-b-[3px] border-b-transparent drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-blue-100 dark:via-blue-200 dark:to-blue-400;
+  }
+
+  .gradient {
+    @apply font-montserrat font-semibold text-nav-link dark:text-white dark:drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] hover:text-accent-color focus:text-hover-color border-b-[3px] border-b-transparent drop-shadow-[0_0.15px_0.15px_rgba(0,0,20,1)] transition-transform duration-200 ease-in-out dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-r dark:from-blue-100 dark:via-blue-200 dark:to-blue-400;
   }
 
   .mobile-hamb {
@@ -233,7 +247,7 @@ address {
   }
 
   .title-accent {
-    @apply text-accent-color wide:text-[16px] lg:text-[14px] font-medium;
+    @apply text-accent-color wide:text-[16px] lg:text-[14px] font-medium dark:text-white;
   }
 
   .card-info-block {
@@ -241,7 +255,7 @@ address {
   }
 
   .text-description {
-    @apply text-secondary-text;
+    @apply text-secondary-text dark:text-white;
   }
 
   .vector {
@@ -260,6 +274,10 @@ address {
     @apply mb-2 text-label-text text-[14px] font-medium leading-tight;
   }
 
+  .select-wrapper {
+    @apply relative flex flex-col;
+  }
+
   .card-big-button {
     @apply flex justify-center items-center shrink-0 w-[244px] md:w-[254px] wide:w-[274px] wide:h-[44px] py-3 wide:px-[6.1875rem] px-3 bg-accent-color hover:bg-hover-color focus:bg-hover-color text-white rounded-[.75rem] outline-none transition duration-200 ease-in-out;
   }
@@ -269,7 +287,7 @@ address {
   }
 
   .button-search {
-    @apply flex justify-center items-center shrink-0 w-[136px] h-[48px] py-[14px] px-[44px] bg-accent-color hover:bg-hover-color focus:bg-hover-color text-white rounded-[.75rem] outline-none transition duration-200 ease-in-out;
+    @apply flex justify-center items-center shrink-0 w-[136px] h-[48px] py-[14px] px-[44px] bg-accent-color hover:bg-hover-color focus:bg-hover-color text-white text-[14px] rounded-[.75rem] outline-none transition duration-200 ease-in-out;
   }
 
   .button-load {
@@ -277,19 +295,35 @@ address {
   }
 
   .select-brand {
-    @apply flex justify-between items-center space-x-[2rem] py-[14px] pr-[89px] pl-[18px] w-[224px] h-[48px] bg-input-color text-input-text border-none rounded-[.875rem] outline-none transition duration-200 ease-in-out;
+    @apply flex justify-between items-center space-x-[2rem] py-[14px]  px-[18px] w-[224px] h-[48px] bg-input-color text-input-text text-[16px] border-none rounded-[.875rem] outline-none transition duration-200 ease-in-out dark:bg-slate-400;
   }
 
   .select-price {
-    @apply flex justify-between items-center space-x-[2rem] py-[14px] px-[18px] w-[125px] h-[48px] bg-input-color text-input-text border-none rounded-[.875rem] outline-none transition duration-200 ease-in-out;
+    @apply flex justify-between items-center space-x-[2rem] py-[14px] px-[18px] w-[125px] h-[48px] bg-input-color text-input-text text-[16px] border-none rounded-[.875rem] outline-none transition duration-200 ease-in-out dark:bg-slate-400;
+  }
+
+  .select-text {
+    @apply text-[16px] font-medium text-select-text leading-5;
+  }
+
+  .select-placeholder {
+    @apply leading-5 text-[16px] text-main-text 
+    placeholder:leading-5 placeholder:font-[18px] placeholder:font-medium placeholder:text-main-text;
   }
 
   .select-from {
-    @apply flex justify-between items-center space-x-[2rem] py-[14px] pr-[93px] pl-[24px] w-[160px] h-[48px] bg-input-color text-input-text border-none rounded-l-[14px] rounded-r-none outline-none transition duration-200 ease-in-out;
+    @apply flex justify-between items-center shrink space-x-[2rem] py-[14px]  px-[24px] wide:w-[160px] w-[120px] h-[48px] bg-input-color text-input-text border-none rounded-l-[14px] rounded-r-none outline-none transition duration-200 ease-in-out dark:bg-slate-400;
   }
 
   .select-to {
-    @apply flex justify-between items-center space-x-[2rem] py-[14px] pr-[115px] pl-[24px] w-[160px] h-[48px] bg-input-color text-input-text border-none rounded-l-none rounded-r-[14px] outline-none transition duration-200 ease-in-out;
+    @apply flex justify-between items-center shrink space-x-[2rem] py-[14px]  px-[24px] w-[160px] h-[48px] bg-input-color text-input-text border-none rounded-l-none rounded-r-[14px] outline-none transition duration-200 ease-in-out dark:bg-slate-400;
+  }
+
+  .error {
+    @apply absolute -bottom-[20px] left-0 text-red-600 w-full;
+  }
+  .error-to {
+    @apply absolute -bottom-[20px] right-0 text-red-600 w-full;
   }
 
   .padding {
@@ -297,7 +331,7 @@ address {
   }
 
   .form {
-    @apply flex items-end space-x-[18px] mb-[50px];
+    @apply flex items-end gap-4 mb-[50px];
   }
 
   .backdrop {
@@ -379,19 +413,17 @@ address {
   .sidebar-close {
     @apply w-20 flex-initial -translate-x-4 transition-transform duration-300 ease-linear;
   }
+
+  .radio {
+    @apply relative ml-[0.1rem] mr-1 mt-0.5 h-3 w-3 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-red-600 checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-red-600 checked:after:bg-slate-200 checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.07] hover:before:shadow-[0px_1px_1px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_1px_1px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-accent-color checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-red-600 dark:checked:after:border-accent-color dark:checked:after:bg-accent-color dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-red-600 dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca];
+  }
 }
 
-.home-bg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  background-image: url('../assets/images/bg-hero-min.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom right left;
+.responsive-font {
+  font-size: calc(calc(2vw + 2vh) * 0.8);
+}
+.responsive-text {
+  font-size: calc(calc(0.5vw + 0.5vh) * 0.8);
 }
 
 .fav-bg {
@@ -400,10 +432,10 @@ address {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/images/fav-bg-min.png');
+  background-image: url('../assets/images/nature.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom right left;
+  background-position: bottom bottom;
 }
 
 .accordion-title {
@@ -444,7 +476,7 @@ address {
   padding: 0 30px;
   border: solid 1px #eee;
   border-top: 0;
-  background: #e8f4fc;
+  background: #dbeafe;
 }
 
 .content.is-expanded {
