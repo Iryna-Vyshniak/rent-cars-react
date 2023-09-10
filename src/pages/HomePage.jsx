@@ -1,5 +1,22 @@
-const HomePage = () => {
-  return <div>HomePage</div>
-}
+import Cars from '../components/HomeSections/Cars';
+import Destinations from '../components/HomeSections/Destination';
+import Hero from '../components/HomeSections/Hero';
+import ImageSlider from '../components/HomeSections/ImageSlider';
+import Offers from '../components/HomeSections/Offers';
 
-export default HomePage
+import RentService from '../components/HomeSections/RentService';
+
+const HomePage = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4">
+      <Hero />
+      <Destinations />
+      <Offers />
+      <RentService />
+      <Cars />
+      <ImageSlider />
+    </div>
+  );
+};
+
+export default HomePage;
