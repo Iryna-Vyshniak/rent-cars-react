@@ -54,8 +54,8 @@ const Filter = ({ cars }) => {
       disabled={isFormDisabled}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <div className="form mb-2 flex-wrap gap-3">
-          <div className="select-wrapper mb-2 gap-3">
+        <div className="form mb-2 flex-wrap gap-3 items-center">
+          <div className="select-wrapper mb-2">
             <label htmlFor="brand" className="select-label">
               Car brand
             </label>
@@ -174,7 +174,7 @@ const Filter = ({ cars }) => {
             </div>
           </div>
         </div>
-        <div className="-mt-3 mb-2 flex flex-wrap items-center justify-center gap-3">
+        <div className="-mt-6 mb-2 flex flex-wrap items-center justify-center gap-3">
           <Button type="submit" className="button-search" label="Search" />
           <Button
             type="button"

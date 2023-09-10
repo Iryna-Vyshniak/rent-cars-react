@@ -5,7 +5,9 @@ const Cars = () => {
   return (
     <section className="mx-auto my-20 grid h-[500px] max-w-[1440px] gap-4 bg-blue-100 px-4 pt-16 dark:bg-slate-500 md:mb-[35%] lg:mb-[20%] lg:grid-cols-3">
       <div className="relative col-span-2 lg:top-5 lg:col-span-1">
-        <MainTitle className="mt-0 flex items-start justify-start">Drive Your Dreams</MainTitle>
+        <MainTitle className="mt-0 flex items-start justify-start text-[32px]">
+          Drive Your Dreams
+        </MainTitle>
         <p className="modal-second-title text-[16px]">
           At <span className="font-semibold text-accent-color dark:text-white"> RentCars</span>,
           we`re not just a car rental service; we`re your ticket to unforgettable experiences,

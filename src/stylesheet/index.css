@@ -339,7 +339,7 @@ address {
   }
 
   .modal {
-    @apply absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-[110]  p-[40px] w-[541px] min-h-[752px] bg-modal-bg rounded-[24px] mx-auto;
+    @apply absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-[110]  p-[40px] w-[541px] bg-modal-bg rounded-[24px] mx-auto shadow-md md:p-[30px] overflow-x-hidden lg:overflow-y-scroll max-md:h-[600px] max-md:p-3 no-scrollbar;
   }
 
   .close {
