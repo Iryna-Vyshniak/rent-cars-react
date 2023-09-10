@@ -5,7 +5,7 @@ import icons from '../assets/images/icons.svg';
 const Button = ({ label, iconURL, ariaLabel, className, svgClass, onClick, type, id }) => {
   return (
     <button
-      id={id}
+      data-id={id}
       type={type}
       className={
         className
