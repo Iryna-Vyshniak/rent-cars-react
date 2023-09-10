@@ -1,38 +1,39 @@
-import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { getFav } from '../../shared/utils';
+import { useSelector } from 'react-redux';
+
+import { selectFavorites, selectFilter } from '../../redux/cars/carsSelectors';
+
+import NoLikes from '../NotFound';
+
+import Filter from '../Filter/Filter';
+
+import { filterCars } from '../../shared/utils';
 
 import CarItem from './CarItem';
 
 const FavoritesList = ({ open }) => {
-  const [favoriteCars, setFavoriteCars] = useState([]);
-
-  useEffect(() => {
-    const keys = Object.keys(localStorage);
-
-    const favorites = keys.map(car => {
-      return JSON.parse(getFav(car));
-    });
-
-    setFavoriteCars(favorites);
-  }, []);
-
-  if (!favoriteCars.length) {
-    return <p>No favorite cars found</p>;
-  }
+  const favoriteCars = useSelector(selectFavorites);
+  const filter = useSelector(selectFilter);
+  const filteredCars = filterCars(favoriteCars, filter);
 
   return (
-    <div className={open ? 'fav-list mt-[40px] p-8' : 'cards-list mt-[70px]'}>
-      {favoriteCars.map(car =>
-        car && car.id ? <CarItem car={car} fav={true} key={car.id} onOpen={open} /> : null
-      )}
+    <div className="flex flex-col gap-5">
+      <div className="ml-5 mt-10">
+        <Filter cars={favoriteCars} open={open} />
+      </div>
+      {!filteredCars.length && <NoLikes />}
+      <div className={open ? 'fav-list relative mt-[40px] p-8' : 'cards-list relative mt-[70px]'}>
+        {filteredCars.map(car => (
+          <CarItem car={car} key={car.id} />
+        ))}
+      </div>
     </div>
   );
 };
 
 FavoritesList.propTypes = {
-  open: PropTypes.bool.isRequired
+  open: PropTypes.bool
 };
 
 export default FavoritesList;

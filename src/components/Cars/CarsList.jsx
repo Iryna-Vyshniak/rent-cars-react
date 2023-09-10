@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 
 import Button from '../Button';
 
-import { filteredCars } from '../../shared/utils';
 import { COUNT_CARS } from '../../shared/constants';
 
 import { useLoadMore } from '../../shared/hooks';
+
+import { filteredCars } from '../../shared/utils';
 
 import CarItem from './CarItem';
 
@@ -18,13 +19,11 @@ const CarsList = ({ adverts }) => {
     <>
       <ul className="cards-list">
         {filteredCars(adverts, indexOfLastCar).map(car => (
-          <CarItem car={car} fav={true} key={car.id} onOpen={open} />
+          <CarItem car={car} key={car.id} />
         ))}
       </ul>
-      {adverts.length >= indexOfLastCar ? (
+      {adverts?.length >= indexOfLastCar && (
         <Button className="button-load" label="Load more" onClick={loadMore} />
-      ) : (
-        <p>Finish</p>
       )}
     </>
   );

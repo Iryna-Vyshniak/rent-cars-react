@@ -1,16 +1,22 @@
+import { useSelector } from 'react-redux';
+
 import FavoritesList from '../Cars/FavoritesList';
-import { navLinks } from '../../shared/data';
 
 import Button from '../Button';
 import Title from '../Title';
 import { useToggle } from '../../shared/hooks';
 
+import { selectFavorites } from '../../redux/cars/carsSelectors';
+import RadioFilter from '../Filter/RadioFilter';
+
 const Sidebar = () => {
   const { isOpen, toggle } = useToggle(true);
 
+  const favoriteCars = useSelector(selectFavorites);
+
   return (
-    <div className="ml-2 flex flex-1 items-center justify-center self-start pl-2 md:min-h-screen">
-      <div className={`${isOpen ? 'sidebar-open' : 'sidebar-close'} sidebar`}>
+    <div className="relative z-[80] ml-2 flex flex-1 items-center justify-center self-start pl-2 dark:bg-slate-800 md:min-h-screen">
+      <div className={`${isOpen ? 'sidebar-open' : 'sidebar-close'} sidebar relative z-[70]`}>
         <Button
           iconURL="#icon-arrow"
           type="button"
@@ -26,32 +32,18 @@ const Sidebar = () => {
               !isOpen && 'hidden'
             } ${isOpen && 'scale-[1]'}`}
           >
-            Models
+            Company
           </Title>
         </div>
-        <ul className="pt-6">
-          {navLinks.map(menu => (
-            <li
-              key={menu.id}
-              className={`flex rounded-md p-2 cursor-pointer hover:bg-white/50 text-gray-300 text-sm items-center gap-x-4 
-              ${menu ? 'mt-9' : 'mt-2'} ${menu.id === 1 && 'bg-white/50'} `}
-            >
-              <Button
-                type="button"
-                iconURL="#icon-heart"
-                ariaLabel="heart icon"
-                className="heart"
-              />
-              <span
-                className={`${!isOpen && 'hidden'} origin-left transition duration-200 ease-in-out`}
-              >
-                {menu.label}
-              </span>
-            </li>
-          ))}
-        </ul>
+        <RadioFilter open={isOpen} />
       </div>
-      <div className="no-scrollbar h-screen flex-auto overflow-y-auto px-2 py-7">
+      <div
+        className={
+          !favoriteCars?.length
+            ? 'no-scrollbar h-screen flex-auto overflow-hidden px-2 py-7'
+            : 'no-scrollbar h-screen flex-auto overflow-y-auto px-2 py-7'
+        }
+      >
         <FavoritesList open={isOpen} />
       </div>
     </div>
