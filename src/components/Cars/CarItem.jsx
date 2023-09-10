@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../Button';
 import ThumbImage from '../ThumbImage';
@@ -10,82 +10,64 @@ import DefaultCar from '../../assets/images/car.jpg';
 import { useToggle } from '../../shared/hooks';
 import { Modal, ModalCardDetail } from '../Modal';
 
-import { addFav, deleteFav, getCarData, getFav, getLocationData } from '../../shared/utils/utils';
+import { getCarData, getLocationData } from '../../shared/utils/utils';
+
+import { removeFromFavorites, setToFavorites } from '../../redux/cars/carsSlice';
+
+import { selectFavorites } from '../../redux/cars/carsSelectors';
 
 import CardInfoBlock from './CardInfoBlock';
 
-const CarItem = ({ car, fav }) => {
+const CarItem = ({ car }) => {
   const { isOpen, open, close } = useToggle(false);
+  const favorites = useSelector(selectFavorites);
+  const dispatch = useDispatch();
 
   const { id, year, make, model, img, rentalPrice, address } = car;
 
   const carData = getCarData(car);
   const locationData = getLocationData(address, car);
 
-  const [isActive, setIsActive] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const isFavorite = favorites?.some(favCar => favCar.id === id);
 
-  let favLength = useRef(0);
-
-  useEffect(() => {
-    const isFavorite = getFav(id);
-    setIsActive(!!isFavorite);
-  }, [id]);
-
-  const buttonHandler = () => {
-    if (isActive) {
-      deleteFav(id);
-      setIsActive(false);
-      if (fav) {
-        setIsVisible(false);
-      }
-    } else {
-      addFav(car);
-      setIsActive(true);
-    }
+  const handleToggleFavorite = () => {
+    return isFavorite ? dispatch(removeFromFavorites(car)) : dispatch(setToFavorites(car));
   };
-
-  if (favLength.current < 1 && isVisible === false) {
-    return <p>No favorite cars found.</p>;
-  }
 
   return (
     <>
-      {isVisible && (
-        <li className="card flex-auto">
-          <Button
-            data-id={id}
-            type="button"
-            iconURL="#icon-heart"
-            ariaLabel="heart icon"
-            onClick={buttonHandler}
-            className={`${isActive ? 'heart favorite' : 'heart'}`}
-          />
-          <ThumbImage
-            className="card-image"
-            src={img ? img : DefaultCar}
-            alt={`${make} ${model}`}
-            width="274"
-            height="426"
-          />
-          <Title>
-            <span className="truncate hover:text-clip">
-              {make}
-              <span className="title-accent ml-1">{model}</span>, {year}
-            </span>
-            <span>{rentalPrice}</span>
-          </Title>
+      <li className="card flex-auto">
+        <Button
+          type="button"
+          iconURL="#icon-heart"
+          ariaLabel="heart icon"
+          onClick={handleToggleFavorite}
+          className={`heart ${isFavorite ? 'favorite' : ''}`}
+        />
+        <ThumbImage
+          className="card-image"
+          src={img ? img : DefaultCar}
+          alt={`${make} ${model}`}
+          width="274"
+          height="426"
+        />
+        <Title>
+          <span className="truncate hover:text-clip dark:text-white">
+            {make}
+            <span className="title-accent ml-1">{model}</span>, {year}
+          </span>
+          <span className="dark:text-white">{rentalPrice}</span>
+        </Title>
 
-          <CardInfoBlock locationData={locationData} carData={carData} />
+        <CardInfoBlock locationData={locationData} carData={carData} />
 
-          <Button label="Learn more" className="card-big-button" onClick={open} />
-          {isOpen && (
-            <Modal isOpen={isOpen} onClose={close}>
-              <ModalCardDetail car={car} />
-            </Modal>
-          )}
-        </li>
-      )}
+        <Button label="Learn more" className="card-big-button" onClick={open} />
+        {isOpen && (
+          <Modal isOpen={isOpen} onClose={close}>
+            <ModalCardDetail car={car} />
+          </Modal>
+        )}
+      </li>
     </>
   );
 };
