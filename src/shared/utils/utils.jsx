@@ -22,7 +22,14 @@ export const getLocationData = (address, car) => {
 
 export const renderItems = (arr, el, className) => {
   return arr.map((item, idx) => (
-    <li key={idx} className={className ? `text-description ${className}` : 'text-description'}>
+    <li
+      key={idx}
+      className={
+        className
+          ? `text-description ${className} dark:text-white/50`
+          : 'text-description dark:text-white/50'
+      }
+    >
       {item}
       {idx < arr.length - 1 && el}
     </li>
@@ -57,7 +64,7 @@ export const formatedValue = (key, value) => {
 };
 
 export const filteredCars = (arr, num) => {
-  const newArr = arr.slice(0, num);
+  const newArr = arr?.slice(0, num);
   return newArr;
 };
 
@@ -92,20 +99,47 @@ export const parseMileage = num => (num / 1000).toFixed(3);
 
 export const parsePrice = str => str.split('').slice(1).join('');
 
-export const addFav = car => {
-  localStorage.setItem(car.id, JSON.stringify(car));
+export const priceOptions = arr => {
+  if (!arr.length) {
+    return undefined;
+  }
+
+  let max = 0;
+  const priceOptions = [];
+
+  arr.forEach(item => {
+    const price = +parsePrice(item.rentalPrice);
+    if (price > max) {
+      max = price;
+    }
+  });
+
+  let i = 10;
+  while (i <= max) {
+    priceOptions.push(i);
+    i += 10;
+  }
+
+  return priceOptions;
 };
 
-export const getFav = car => {
-  return localStorage.getItem(car);
-};
+export const filterCars = (cars, filter) => {
+  if (!filter) {
+    return cars;
+  }
 
-export const deleteFav = key => {
-  localStorage.removeItem(key);
-};
+  return cars.filter(car => {
+    const rentalPrice = parseInt(car.rentalPrice.substring(1));
+    const mileage = parseFloat(car.mileage);
 
-export const handleMakeChange = setterFunction => {
-  return make => {
-    setterFunction(make);
-  };
+    const brandMatch = !filter.brand || car.make.toLowerCase() === filter.brand.toLowerCase();
+    const priceMatch = !filter.price || rentalPrice <= filter.price;
+    const minMileageMatch = !filter.from || mileage >= filter.from;
+    const maxMileageMatch = !filter.to || mileage <= filter.to;
+    const companyMatch =
+      !filter.rentalCompany ||
+      car.rentalCompany.toLowerCase() === filter.rentalCompany.toLowerCase();
+
+    return brandMatch && priceMatch && minMileageMatch && maxMileageMatch && companyMatch;
+  });
 };

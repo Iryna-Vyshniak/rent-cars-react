@@ -11,10 +11,8 @@ import {
   parsePrice,
   getFullCarData,
   getFuelEngineData,
-  addFav,
-  getFav,
-  deleteFav,
-  handleMakeChange
+  priceOptions,
+  filterCars
 } from './utils';
 
 export {
@@ -30,8 +28,6 @@ export {
   parsePrice,
   getFullCarData,
   getFuelEngineData,
-  addFav,
-  getFav,
-  deleteFav,
-  handleMakeChange
+  priceOptions,
+  filterCars
 };
