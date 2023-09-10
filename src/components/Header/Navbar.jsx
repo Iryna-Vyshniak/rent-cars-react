@@ -16,6 +16,7 @@ const Navbar = () => {
     <nav>
       <MobileNavbar icons={icons} navbar={isOpen} openNav={toggle} />
       <DeskNavbar />
+
       <div className="mobile-hamb" onClick={toggle}>
         <Logo text="RentCars" classText="logo-text" />
         <Button svgClass="mobile-navbar-menu" iconURL="#icon-menu" ariaLabel="menu" />

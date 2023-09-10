@@ -8,7 +8,7 @@ import NavMenu from './NavMenu';
 
 const MobileNavbar = ({ navbar, openNav }) => {
   return (
-    <div className={`mobile-navbar ${navbar ? 'open-nav' : ''}`}>
+    <div className={`mobile-navbar dark:bg-slate-800 ${navbar ? 'open-nav' : ''}`}>
       <Logo className="absolute inset-x-0 bottom-3 z-[60]" />
       <Button
         onClick={openNav}

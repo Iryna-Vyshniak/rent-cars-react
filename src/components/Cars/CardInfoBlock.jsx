@@ -7,10 +7,12 @@ import { renderItems } from '../../shared/utils/utils';
 const CardInfoBlock = ({ locationData, carData }) => {
   return (
     <>
-      <ul className="card-info-block flex-wrap">{renderItems(locationData, <Separator />)}</ul>
-      <ul className="card-info-block mb-[28px]">
+      <ul className="card-info-block flex-wrap dark:text-white/50">
+        {renderItems(locationData, <Separator />)}
+      </ul>
+      <ul className="card-info-block mb-[28px] dark:text-white/50">
         {Object.entries(carData).map(([key, value], idx, arr) => (
-          <li key={idx} className="text-description">
+          <li key={idx} className="text-description dark:text-white/50">
             {formatedValue(key, value)}
             {idx < arr.length - 1 && <Separator />}
           </li>

@@ -5,8 +5,8 @@ const Title = ({ children, className }) => {
     <h2
       className={
         className
-          ? `${className}`
-          : 'title-card flex w-full items-center justify-between gap-2 lg:text-[14px] wide:text-[16px]'
+          ? `${className} dark:text-white`
+          : 'title-card flex w-full items-center justify-between gap-2 dark:text-white lg:text-[14px] wide:text-[16px]'
       }
     >
       {children}

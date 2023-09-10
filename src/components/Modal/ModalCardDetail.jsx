@@ -57,7 +57,7 @@ const ModalCardDetail = ({ car }) => {
           {renderItems(carData, <Separator />)}
         </ul>
       </div>
-      <div className="modal-accent-descr">{description}</div>
+      <div className="modal-accent-descr dark:text-white">{description}</div>
       <AccessoriesBlock
         title="Accessories and functionalities"
         accessories={accessories}

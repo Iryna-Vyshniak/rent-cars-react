@@ -32,7 +32,7 @@ const Modal = ({ onClose, children, isOpen }) => {
 
   return createPortal(
     <div className="backdrop" onClick={handleModalClose}>
-      <div className="modal max-w-full">
+      <div className="modal max-w-full dark:bg-slate-700">
         <Button
           onClick={onClose}
           className="close"
@@ -50,7 +50,7 @@ const Modal = ({ onClose, children, isOpen }) => {
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
-  onOpen: PropTypes.bool
+  isOpen: PropTypes.bool
 };
 
 export default Modal;
