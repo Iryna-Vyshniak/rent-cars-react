@@ -131,42 +131,49 @@ const Filter = ({ cars }) => {
               />
             </div>
           </div>
-          <div className="select-wrapper mb-2">
+          <div className="mb-2 flex flex-col">
             <label htmlFor="minMileage" className="select-label">
               Car mileage / km (from)
             </label>
-            <div className="flex">
-              <input
-                type="number"
-                placeholder="From"
-                className="select-placeholder select-from"
-                {...register('from', {
-                  required: 'This field is required',
-                  min: {
-                    value: 0,
-                    message: 'Must be 0 or greater'
-                  }
-                })}
-              />
-
-              <input
-                type="number"
-                placeholder="To"
-                className="select-placeholder select-to"
-                {...register('to', {
-                  required: 'This field is required',
-                  min: {
-                    value: 0,
-                    message: 'Must be 0 or greater'
-                  },
-                  validate: (value, { from }) => {
-                    if (parseInt(value) > parseInt(from)) {
-                      return true;
+            <div className="relative flex after:absolute after:inset-y-0 after:right-1/2 after:h-[48px] after:w-[1px] after:bg-[rgba(138,138,137,0.2)] after:content-['']">
+              <label className="relative">
+                <input
+                  type="number"
+                  className="select-from relative m-auto w-[160px] select-text"
+                  {...register('from', {
+                    required: 'This field is required',
+                    min: {
+                      value: 0,
+                      message: 'Must be 0 or greater'
                     }
-                    return 'To must be greater than From';
-                  }
-                })}
-              />
+                  })}
+                />
+                <span className="select-placeholder absolute left-2 top-1/2 -translate-y-1/2">
+                  From
+                </span>
+              </label>
+              <label className="relative">
+                <input
+                  type="number"
+                  className="select-to w-[160px] select-text"
+                  {...register('to', {
+                    required: 'This field is required',
+                    min: {
+                      value: 0,
+                      message: 'Must be 0 or greater'
+                    },
+                    validate: (value, { from }) => {
+                      if (parseInt(value) > parseInt(from)) {
+                        return true;
+                      }
+                      return 'To must be greater than From';
+                    }
+                  })}
+                />
+                <span className="select-placeholder absolute left-8 top-1/2 -translate-y-1/2">
+                  To
+                </span>
+              </label>
               <p
                 className={`error flex items-center justify-between gap-1 ${
                   isFormDisabled ? 'opacity-0' : 'opacity-100'
