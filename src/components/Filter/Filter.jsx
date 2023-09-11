@@ -54,7 +54,7 @@ const Filter = ({ cars }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={`form flex-wrap ${isFormDisabled ? 'pointer-events-none opacity-60' : ''}`}
+      className={`form flex-wrap px-3 ${isFormDisabled ? 'pointer-events-none opacity-60' : ''}`}
       disabled={isFormDisabled}
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -139,7 +139,7 @@ const Filter = ({ cars }) => {
               <label className="relative">
                 <input
                   type="number"
-                  className="select-from relative m-auto w-[160px] select-text"
+                  className="select-from relative m-auto select-text"
                   {...register('from', {
                     required: 'This field is required',
                     min: {
@@ -148,14 +148,14 @@ const Filter = ({ cars }) => {
                     }
                   })}
                 />
-                <span className="select-placeholder absolute left-2 top-1/2 -translate-y-1/2">
+                <span className="select-placeholder absolute left-3 top-1/2 -translate-y-1/2">
                   From
                 </span>
               </label>
               <label className="relative">
                 <input
                   type="number"
-                  className="select-to w-[160px] select-text"
+                  className="select-to select-text"
                   {...register('to', {
                     required: 'This field is required',
                     min: {
@@ -170,7 +170,7 @@ const Filter = ({ cars }) => {
                     }
                   })}
                 />
-                <span className="select-placeholder absolute left-8 top-1/2 -translate-y-1/2">
+                <span className="select-placeholder absolute left-3 top-1/2 -translate-y-1/2">
                   To
                 </span>
               </label>

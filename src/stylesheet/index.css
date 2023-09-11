@@ -480,11 +480,11 @@ address {
   }
 
   .select-from {
-    @apply flex justify-between items-center shrink space-x-[2rem] py-[14px]  pl-[43px] pr-2 wide:w-[160px] w-[120px] h-[48px] bg-input-color text-input-text border-none rounded-l-[14px] rounded-r-none outline-none transition duration-200 ease-in-out dark:bg-slate-400;
+    @apply flex justify-between items-center shrink space-x-[2rem] py-[14px] pl-[63px] pr-2 w-[160px] h-[48px] bg-input-color text-input-text border-none rounded-l-[14px] rounded-r-none outline-none transition duration-200 ease-in-out dark:bg-slate-400;
   }
 
   .select-to {
-    @apply flex justify-between items-center shrink space-x-[2rem] py-[14px]  px-[24px] w-[160px] h-[48px] bg-input-color text-input-text border-none rounded-l-none rounded-r-[14px] outline-none transition duration-200 ease-in-out dark:bg-slate-400;
+    @apply flex justify-between items-center shrink space-x-[2rem] py-[14px] pl-[53px] pr-2 w-[160px] h-[48px] bg-input-color text-input-text border-none rounded-l-none rounded-r-[14px] outline-none transition duration-200 ease-in-out dark:bg-slate-400;
   }
 
   .error {
