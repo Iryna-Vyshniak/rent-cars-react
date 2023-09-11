@@ -17,7 +17,7 @@ const Destinations = () => {
                   : 'h-full w-full object-cover'
               }`}
             >
-              <img src={url} alt={title} className="h-full w-full object-cover" />
+              <img src={url} alt={title} className="h-full w-full object-cover" loading="lazy" />
             </li>
           ))}
         </ul>

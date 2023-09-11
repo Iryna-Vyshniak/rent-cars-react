@@ -16,6 +16,7 @@ const Logo = ({ className, classText, text }) => {
           width="474"
           height="626"
           className={className ? `${className}` : ''}
+          loading="lazy"
         />
         {text && <Title className={classText ? `${classText}` : ''}>{text}</Title>}
       </Link>

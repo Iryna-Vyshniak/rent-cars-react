@@ -3,7 +3,7 @@ import MainTitle from '../MainTitle';
 
 const RentService = () => {
   return (
-    <section className="mb-10 max-w-[1440px] leading-[0.05rem]">
+    <section className="mb-10 max-w-[1440px] px-4 leading-[0.05rem]">
       <div className="flex flex-col items-center justify-between gap-x-10 lg:flex-row">
         <div className="w-full lg:w-2/5">
           <MainTitle className="capitalize text-black/80 dark:text-white">
@@ -29,7 +29,7 @@ const RentService = () => {
         </div>
 
         <div className="w-full lg:w-3/5">
-          <img src={LogoCar} alt="car" width="2200" />
+          <img src={LogoCar} alt="car" width="2200" loading="lazy" />
         </div>
       </div>
     </section>

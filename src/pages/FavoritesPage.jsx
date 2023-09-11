@@ -2,8 +2,8 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 const FavoritesPage = () => {
   return (
-    <div className="fav-bg flex min-h-screen dark:bg-slate-800">
-      <div className="relative z-10 mx-auto my-0 flex items-center justify-center overflow-hidden bg-white/80">
+    <div className="mt-[-3rem] w-full wide:mt-[-8rem]">
+      <div className="relative mx-auto my-0 w-full ">
         <Sidebar />
       </div>
     </div>

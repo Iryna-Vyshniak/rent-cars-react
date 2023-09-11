@@ -95,7 +95,7 @@ export const parseRentalConditions = str => {
   return arr;
 };
 
-export const parseMileage = num => (num / 1000).toFixed(3);
+export const parseMileage = num => num.toLocaleString('en-EN');
 
 export const parsePrice = str => str.split('').slice(1).join('');
 

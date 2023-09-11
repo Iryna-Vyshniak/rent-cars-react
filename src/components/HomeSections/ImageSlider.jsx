@@ -15,25 +15,25 @@ const ImageSlider = () => {
         style={{ backgroundImage: `url(${carSlides[currentIndex].url})` }}
       ></div>
 
-      <div className="absolute left-5 top-[50%] -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full p-2 text-2xl text-white group-hover:bg-black/20">
+      <div className="absolute left-5 top-[50%] -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full p-2 text-2xl text-white transition duration-200 ease-in-out group-hover:bg-black/20">
         <BsChevronCompactLeft onClick={prevSlide} size={30} />
       </div>
 
-      <div className="absolute right-5 top-[50%] -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full p-2 text-2xl text-white group-hover:bg-black/20">
+      <div className="absolute right-5 top-[50%] -translate-x-0 translate-y-[-50%] cursor-pointer rounded-full p-2 text-2xl text-white transition duration-200 ease-in-out group-hover:bg-black/20">
         <BsChevronCompactRight onClick={nextSlide} size={30} />
       </div>
 
-      <div className="top-4 flex justify-center py-2">
+      <ul className="top-4 flex justify-center py-2 transition duration-200 ease-in-out">
         {carSlides.map((slide, slideIndex) => (
-          <div
-            className="cursor-pointer text-2xl"
+          <li
+            className="cursor-pointer text-2xl transition duration-200 ease-in-out"
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
           >
             <RxDotFilled />
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 };

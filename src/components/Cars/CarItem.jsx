@@ -50,6 +50,7 @@ const CarItem = ({ car }) => {
           alt={`${make} ${model}`}
           width="274"
           height="426"
+          loading="lazy"
         />
         <Title>
           <span className="truncate hover:text-clip dark:text-white">

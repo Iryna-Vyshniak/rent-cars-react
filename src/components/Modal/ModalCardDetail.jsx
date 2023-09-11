@@ -45,6 +45,7 @@ const ModalCardDetail = ({ car }) => {
         alt={`${make} ${model}`}
         className="modal-car"
         blockClass="w-[461px] h-[248px]"
+        loading="lazy"
       />
       <Title className="modal-title">
         {make} <span className="modal-accent-title">{model}</span>, {year}

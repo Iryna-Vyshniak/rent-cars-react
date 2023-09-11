@@ -5,7 +5,7 @@ import ThumbImage from './ThumbImage';
 
 const NotFound = () => {
   return (
-    <section className="no-scrollbar relative flex min-h-screen  flex-col items-center justify-start overflow-hidden">
+    <section className="no-scrollbar relative flex flex-col items-center justify-start overflow-hidden">
       <MainTitle
         className="responsive-font relative z-[50] mt-0
         flex
@@ -22,7 +22,7 @@ const NotFound = () => {
         src={Car}
         alt="Car"
         width="1200"
-        className="absolute bottom-[35rem] right-0 z-[60] mx-4"
+        className="absolute bottom-0 right-0 z-[60] mx-4"
       />
     </section>
   );

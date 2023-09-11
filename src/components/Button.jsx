@@ -17,16 +17,7 @@ const Button = ({ label, iconURL, ariaLabel, className, svgClass, onClick, type,
       {label}
 
       {iconURL && (
-        <svg
-          width="18"
-          height="18"
-          aria-label={ariaLabel}
-          className={
-            svgClass
-              ? `${svgClass} dark:fill-white dark:stroke-white`
-              : 'dark:fill-white dark:stroke-white'
-          }
-        >
+        <svg width="18" height="18" aria-label={ariaLabel} className={svgClass}>
           <use href={icons + iconURL} />
         </svg>
       )}

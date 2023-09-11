@@ -3,6 +3,8 @@ import { useForm, Controller } from 'react-hook-form';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { useLocation } from 'react-router-dom';
+
 import { useUniquePropValues } from '../../shared/hooks';
 import { resetFilter, setFilter } from '../../redux/cars/carsSlice';
 import { selectFilter } from '../../redux/cars/carsSelectors';
@@ -12,6 +14,10 @@ import Button from '../Button';
 const Filter = ({ cars }) => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+
+  const { pathname } = useLocation();
+
+  const isFormDisabled = pathname === '/favorites' && cars?.length === 0;
 
   const price = priceOptions(cars);
   const uniqueBrands = useUniquePropValues(cars, 'make');
@@ -23,7 +29,8 @@ const Filter = ({ cars }) => {
     reset,
     formState: { errors }
   } = useForm({
-    mode: 'onChange'
+    mode: 'onChange',
+    shouldDisable: isFormDisabled
   });
 
   useEffect(() => {
@@ -45,7 +52,11 @@ const Filter = ({ cars }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form flex-wrap">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={`form flex-wrap ${isFormDisabled ? 'pointer-events-none opacity-60' : ''}`}
+      disabled={isFormDisabled}
+    >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="form mb-2 flex-wrap items-center gap-3">
           <div className="select-wrapper mb-2">
@@ -70,7 +81,7 @@ const Filter = ({ cars }) => {
                       ))}
                   </select>
                   {errors.brand && (
-                    <p className="error">
+                    <p className={`error ${isFormDisabled ? 'opacity-0' : 'opacity-100'}`}>
                       {errors.brand.type === 'required'
                         ? 'Brand is required'
                         : errors.brand.message}
@@ -109,7 +120,7 @@ const Filter = ({ cars }) => {
                         ))}
                     </select>
                     {errors.price && (
-                      <p className="error">
+                      <p className={`error ${isFormDisabled ? 'opacity-0' : 'opacity-100'}`}>
                         {errors.price.type === 'required'
                           ? 'Price is required'
                           : errors.price.message}
@@ -156,7 +167,11 @@ const Filter = ({ cars }) => {
                   }
                 })}
               />
-              <p className="error flex items-center justify-between gap-1">
+              <p
+                className={`error flex items-center justify-between gap-1 ${
+                  isFormDisabled ? 'opacity-0' : 'opacity-100'
+                }`}
+              >
                 {errors?.from && <span>{errors.from.message}</span>}
                 {errors?.to && <span>{errors.to.message}</span>}
               </p>

@@ -26,6 +26,7 @@ const Cars = () => {
             className={
               index === 1 ? 'row-span-2 h-full w-full object-cover' : 'h-full w-full object-cover'
             }
+            loading="lazy"
           />
         ))}
       </div>

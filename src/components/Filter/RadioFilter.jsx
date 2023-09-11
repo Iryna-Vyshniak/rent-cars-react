@@ -21,10 +21,18 @@ const RadioFilter = ({ open }) => {
       dispatch(setFilter({ ...filter, rentalCompany }));
     }
   };
+
+  const showAllMakes = (window.innerWidth >= 768 && uniqueMakes.length < 2) || open;
+
   return (
-    <ul className="mt-10 flex flex-col gap-5">
+    <ul className="ml-10 mt-10 flex flex-wrap items-center gap-10">
       {uniqueMakes.map((rentalCompany, index) => (
-        <li key={index} className="relative">
+        <li
+          key={index}
+          className={`relative flex items-center justify-center gap-3 ${
+            !showAllMakes && index > 0 ? 'hidden' : ''
+          }`}
+        >
           <input
             id={rentalCompany}
             type="radio"
@@ -36,15 +44,9 @@ const RadioFilter = ({ open }) => {
           />
           <label
             htmlFor={rentalCompany}
-            className="responsive-text inline-block pl-[0.15rem] text-white hover:cursor-pointer"
+            className="inline-block pl-[0.15rem] text-main-text hover:cursor-pointer"
           >
-            {' '}
-            {open
-              ? rentalCompany
-              : rentalCompany
-                  .split(' ')
-                  .map(word => word[0])
-                  .join('')}
+            {rentalCompany}
           </label>
         </li>
       ))}

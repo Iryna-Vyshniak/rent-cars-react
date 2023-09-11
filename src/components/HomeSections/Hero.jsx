@@ -10,6 +10,7 @@ const Hero = () => {
         className="absolute left-0 top-0 h-screen w-full object-cover object-bottom"
         src={HeroPoster}
         alt="/"
+        loading="lazy"
       />
       <div className="absolute left-0 top-0 h-screen w-full bg-black/30" />
       <div className="absolute left-0 top-[8rem] flex h-full w-full max-w-[800px] flex-col items-start justify-start p-5 text-white md:left-[10%]">
