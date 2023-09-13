@@ -13,11 +13,16 @@ const Destinations = () => {
               key={idx}
               className={`${
                 idx === 0
-                  ? 'col-span-2 row-span-2 h-full w-full object-cover md:col-span-3'
-                  : 'h-full w-full object-cover'
+                  ? 'col-span-2 row-span-2 h-full w-full rounded-2xl object-cover shadow-2xl md:col-span-3'
+                  : 'h-full w-full rounded-2xl object-cover'
               }`}
             >
-              <img src={url} alt={title} className="h-full w-full object-cover" loading="lazy" />
+              <img
+                src={url}
+                alt={title}
+                className="h-full w-full rounded-2xl object-cover"
+                loading="lazy"
+              />
             </li>
           ))}
         </ul>

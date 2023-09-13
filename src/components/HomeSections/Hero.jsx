@@ -12,8 +12,9 @@ const Hero = () => {
         alt="/"
         loading="lazy"
       />
+
       <div className="absolute left-0 top-0 h-screen w-full bg-black/30" />
-      <div className="absolute left-0 top-[8rem] flex h-full w-full max-w-[800px] flex-col items-start justify-start p-5 text-white md:left-[10%]">
+      <div className="max-container absolute left-0 top-[8rem] flex h-full w-full flex-col items-start justify-start p-20 text-white">
         <p>All Inclusive</p>
         <MainTitle className="mb-6 max-w-[950px] p-3 font-bold drop-shadow-2xl md:text-8xl">
           Your Key to <span className="gradient">Freedom</span> on Ukrainian Roads

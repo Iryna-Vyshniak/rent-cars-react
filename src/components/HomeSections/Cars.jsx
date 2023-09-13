@@ -3,7 +3,7 @@ import MainTitle from '../MainTitle';
 
 const Cars = () => {
   return (
-    <section className="mx-auto my-20 grid h-[500px] max-w-[1440px] gap-4 bg-blue-100 px-4 pt-16 dark:bg-slate-500 md:mb-[35%] lg:mb-[20%] lg:grid-cols-3">
+    <section className="mx-auto my-20 grid h-[500px] max-w-[1440px] gap-4 rounded-2xl bg-blue-100 px-4 pt-16 shadow-2xl dark:bg-slate-500 md:mb-[35%] lg:mb-[20%] lg:grid-cols-3">
       <div className="relative col-span-2 lg:top-5 lg:col-span-1">
         <MainTitle className="mt-0 flex items-start justify-start text-[32px]">
           Drive Your Dreams
@@ -24,7 +24,9 @@ const Cars = () => {
             src={image.src}
             alt={image.alt}
             className={
-              index === 1 ? 'row-span-2 h-full w-full object-cover' : 'h-full w-full object-cover'
+              index === 1
+                ? 'row-span-2 h-full w-full rounded-2xl object-cover shadow-2xl'
+                : 'h-full w-full rounded-2xl object-cover'
             }
             loading="lazy"
           />

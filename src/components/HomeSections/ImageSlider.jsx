@@ -11,7 +11,7 @@ const ImageSlider = () => {
   return (
     <section className="group relative m-auto mb-8 mt-20 h-[580px] w-full max-w-[1140px] px-4 py-16">
       <div
-        className="h-full w-full rounded-2xl bg-cover bg-center transition duration-500 ease-linear"
+        className="h-full w-full rounded-2xl bg-cover bg-center shadow-2xl transition duration-500 ease-linear"
         style={{ backgroundImage: `url(${carSlides[currentIndex].url})` }}
       ></div>
 
