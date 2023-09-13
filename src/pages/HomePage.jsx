@@ -1,3 +1,4 @@
+import Banner from '../components/HomeSections/Banner';
 import Cars from '../components/HomeSections/Cars';
 import Destinations from '../components/HomeSections/Destination';
 import Hero from '../components/HomeSections/Hero';
@@ -10,6 +11,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <Hero />
+      <Banner />
       <Destinations />
       <Offers />
       <RentService />
