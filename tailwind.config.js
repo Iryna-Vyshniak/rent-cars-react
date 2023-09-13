@@ -58,7 +58,9 @@ export default {
         mob: '320px'
       },
       backgroundImage: {
-        hero: 'url("../../assets/images/bg-hero-min.png")'
+        hero: 'url("src/assets/images/bg-hero-min.png")',
+        banner: 'url("src/assets/images/baner-main.png")',
+        small: 'url("src/assets/images/bmw.png")'
       },
       scrollbar: ['rounded']
     }
