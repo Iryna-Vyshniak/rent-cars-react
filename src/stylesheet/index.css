@@ -582,6 +582,10 @@ address {
     @apply relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-accent-color checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-accent-color checked:after:bg-accent-color checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-accent-color checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-accent-color dark:checked:after:border-accent-color dark:checked:after:bg-accent-color dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-accent-color dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca];
   }
 
+  .hero {
+    @apply bg-hero bg-black/30 bg-no-repeat bg-fixed h-screen bg-cover bg-bottom top-0 left-0;
+  }
+
   .banner-section {
     @apply relative pb-[60px];
   }
@@ -614,10 +618,10 @@ address {
     @apply absolute max-w-full w-full h-full top-0 right-0 z-[2];
 
     &::before {
-      @apply absolute content-[''] z-[2] bottom-0 right-0 w-[60%] lg:w-full h-full lg:bg-banner  bg-no-repeat;
+      @apply absolute content-[''] z-[2] bottom-10 right-0 w-[60%] lg:w-full h-full lg:bg-banner  bg-no-repeat;
     }
     &::after {
-      @apply absolute content-[''] z-[1] top-0 right-0 w-[65%] h-full lg:h-[80%] bg-blue-100 dark:bg-slate-500 lg:rounded-l-full shadow-2xl;
+      @apply absolute content-[''] z-[1] top-0 right-0 w-[65%] h-full lg:h-[80%] dark:bg-slate-500 bg-gradient-to-b from-blue-100 to-white/5 rounded-l-full shadow-2xl;
     }
   }
 }

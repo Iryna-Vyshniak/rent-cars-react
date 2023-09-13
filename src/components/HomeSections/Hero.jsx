@@ -1,19 +1,10 @@
 import { Link } from 'react-router-dom';
 
-import { HeroPoster } from '../../assets/images';
 import MainTitle from '../MainTitle';
 
 const Hero = () => {
   return (
-    <section className="relative mt-[-4rem] flex h-screen w-screen flex-col wide:-mt-60">
-      <img
-        className="absolute left-0 top-0 h-screen w-full object-cover object-bottom"
-        src={HeroPoster}
-        alt="/"
-        loading="lazy"
-      />
-
-      <div className="absolute left-0 top-0 h-screen w-full bg-black/30" />
+    <section className="hero mt-[-4rem] w-screen">
       <div className="max-container absolute left-0 top-[8rem] flex h-full w-full flex-col items-start justify-start p-20 text-white">
         <p>All Inclusive</p>
         <MainTitle className="mb-6 max-w-[950px] p-3 font-bold drop-shadow-2xl md:text-8xl">
