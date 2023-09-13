@@ -58,7 +58,7 @@ export default {
         mob: '320px'
       },
       backgroundImage: {
-        hero: 'url("src/assets/images/bg-hero-min.png")',
+        hero: 'url("src/assets/images/hero.jpg")',
         banner: 'url("src/assets/images/baner-main.png")',
         small: 'url("src/assets/images/bmw.png")'
       },
