@@ -5,7 +5,7 @@ import MainTitle from '../MainTitle';
 const Hero = () => {
   return (
     <section className="hero mt-[-8rem] w-screen">
-      <div className="max-container absolute left-0 top-[8rem] mt-[2rem] flex h-full w-full flex-col items-start justify-start p-20 text-white">
+      <div className="max-container absolute left-0 top-[4rem] flex h-full w-full flex-col items-start justify-start p-20 text-white wide:top-[8rem] wide:mt-[2rem]">
         <p>All Inclusive</p>
         <MainTitle className="mb-6 max-w-[950px] p-3 font-bold drop-shadow-2xl md:text-8xl">
           Your Key to <span className="gradient">Freedom</span> on Ukrainian Roads

@@ -16,7 +16,7 @@ const Sidebar = () => {
   const favoriteCars = useSelector(selectFavorites);
 
   return (
-    <aside className="absolute top-0 z-[1] w-full">
+    <aside className="absolute top-0 z-[1] w-full ">
       <div className={`${isOpen ? 'sidebar-open' : 'sidebar-close'} sidebar relative`}>
         <Button
           iconURL="#icon-arrow"
@@ -27,10 +27,10 @@ const Sidebar = () => {
           } transition duration-200 ease-in-out`}
           onClick={toggle}
         />
-        <div className="flex flex-col items-center gap-x-4 ">
+        <div className="flex flex-col items-center gap-x-4">
           {favoriteCars.length > 0 && (
             <Title
-              className={`mt-[30px] origin-left text-xl font-semibold text-main-text transition  duration-200 ease-in-out dark:text-accent-color gradient ${
+              className={`gradient mt-[30px] origin-left text-xl font-semibold text-main-text  transition duration-200 ease-in-out dark:text-accent-color ${
                 !isOpen && 'hidden'
               } ${isOpen && 'scale-[1]'}`}
             >
